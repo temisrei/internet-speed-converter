@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import UnitControl from './components/UnitControl';
 import CardFooter from "./components/CardFooter";
+import UnitConverter from './components/UnitConverter';
 import './App.css';
 
 function App() {
@@ -16,22 +17,9 @@ function App() {
       <div className="card-header">Network Speed Converter</div>
       <div className="card-body">
         <UnitControl />
-        <div className="converter">
-          <div className="flex-1">
-            <div className="converter-title">Set</div>
-            <input onChange={handleInputChange}
-              value={inputValue}
-              type="number" className="input-number" min="0" />
-          </div>
-          <span className="angle-icon fa-2x" style={{marginTop: '30px'}}>
-            <i className="fas fa-angle-right"></i>
-          </span>
-          <div className="text-right flex-1">
-            <div className="converter-title">Show</div>
-            <input value={inputValue / 8} 
-              type="text" className="input-number text-right" disabled />
-          </div>
-        </div>
+        <UnitConverter 
+          inputValue={inputValue}
+          handleInputChange={handleInputChange}/>
       </div>
       <CardFooter inputValue={inputValue}/>
     </div>
